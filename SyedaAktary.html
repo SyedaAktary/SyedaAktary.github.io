@@ -1,1 +1,93 @@
-<h1>hello</h1>
+<!DOCTYPE html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>	
+<link href='https://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet'> 
+<link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet'>
+<script src="/assets/jquery.js"></script>
+<style>
+body {
+  text-align: center;
+  font-family: 'Slabo 27px', serif;
+  font-size: 20px;
+  background: #e6eaf0;
+}
+button {
+  margin: 40px;
+}
+input {
+  font-size: 24px;
+}
+.fill {
+  background: white;
+  color: red;
+  border-bottom: 2px black solid;
+  font-family: 'Roboto Slab', serif;
+  padding: 0 6px;
+  margin: 4px;
+}
+</style>
+</head>
+
+<body>
+<div class="prompt"></div>
+<button class="Next">Next</button>
+
+<script>
+
+// List of prompts for the user
+var prompts = [
+	'Type your name',
+	'Type an adjective',
+	'Type your age',
+	'Type a name of a place',
+	'Type another name (female)',
+	'Type a name of an animal (plural)',
+	'Type a group of nouns',
+	'Type the name of your hospital',
+	'Type another name',
+	'Type your favorite ice cream flavor',
+	'Type another number'
+	
+	 ];
+
+var answers=[];
+// Keep track of current prompt we're on
+var currentPrompt = 0;
+
+// A function that will call the next prompt
+var nextPrompt = function() {
+  //if there's no answer in the form
+  if (currentPrompt != 0){
+    answers.push($('input').val());
+  }
+	// if there is a next prompt
+	if (currentPrompt < prompts.length) {
+		// put first prompt in all html elements with class 
+		$('.prompt').html(prompts[currentPrompt] +'<br><input type="text">');
+		// move the next prompt into variable currentPrompt 
+		currentPrompt = currentPrompt + 1;
+	}
+	//or else if we're at the end of the array
+	else {
+		// put a new message into the html.
+		showFinal();
+	}
+}
+
+//puts user answers into HTML
+var showFinal = function() {
+  $('.prompt').html('This is the story of <span class="fill">'+answers[0]+'</span> and the <span class="fill">'+answers[2]+'</span> <span class="fill">'+answers[1]+'</span> <span class="fill">'+answers[5]+'</span>.   <span class="fill">'+answers[4]+'</span> is the best friend. <span class="fill">'+answers[0]+'</span> lived in a house with <span class="fill">'+answers[2]+'</span> <span class="fill">'+answers[5]+'</span>. One day <span class="fill">'+answers[4]+'</span> took all the pet <span class="fill">'+answers[5]+'</span> out for a walk. They came across an ice cream truck and all the <span class="fill">'+answers[5]+'</span> jumped on top of it. <span class="fill">'+answers[4]+'</span> couldnt control them. <span class="fill">'+answers[0]+'</span> was walking home from work, and saw all the <span class="fill">'+answers[5]+'</span> jumping on the truck. <span class="fill">'+answers[0]+'</span> ran towards the <span class="fill">'+answers[5]+'</span> and was yelling at <span class="fill">'+answers[4]+'</span> for taking the <span class="fill">'+answers[5]+'</span> out. But when the <span class="fill">'+answers[5]+'</span> saw <span class="fill">'+answers[0]+'</span>. They jumped off and acted like nothing happend, now that they were listening <span class="fill">'+answers[0]+'</span> decided to take them to the <span class="fill">'+answers[3]+'</span> along with <span class="fill">'+answers[4]+'</span>. There they were jumping around and hurting <span class="fill">'+answers[6]+'</span>. One of them even hurt <span class="fill">'+answers[4]+'</span> so bad that she has to go to the hospital. So <span class="fill">'+answers[0]+'</span> took <span class="fill">'+answers[4]+'</span> and all the <span class="fill">'+answers[5]+'</span> to <span class="fill">'+answers[7]+'</span> hospital. Then doctor <span class="fill">'+answers[8]+'</span> said <span class="fill">'+answers[4]+'</span> broke her ankle. So <span class="fill">'+answers[0]+'</span> took the <span class="fill">'+answers[5]+'</span> home and punished them. But after <span class="fill">'+answers[10]+'</span> minutes, <span class="fill">'+answers[0]+'</span> felt bad, and gave them <span class="fill">'+answers[9]+'</span> flavored ice cream.<br><button onclick=alert("Liked")>Like</button>');
+  //and then hide the button
+  $('.Next').hide();
+}
+// run nextPrompt function when button is clicked
+$('button').click(function() {
+	nextPrompt();
+});
+
+// Show the first prompt as soon as js loads
+nextPrompt();
+
+
+  </script>
+</body>
