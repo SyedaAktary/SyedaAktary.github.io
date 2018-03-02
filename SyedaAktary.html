@@ -1,93 +1,200 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>	
-<link href='https://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet'> 
-<link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet'>
-<script src="/assets/jquery.js"></script>
-<style>
-body {
-  text-align: center;
-  font-family: 'Slabo 27px', serif;
-  font-size: 20px;
-  background: #e6eaf0;
-}
-button {
-  margin: 40px;
-}
-input {
-  font-size: 24px;
-}
-.fill {
-  background: white;
-  color: red;
-  border-bottom: 2px black solid;
-  font-family: 'Roboto Slab', serif;
-  padding: 0 6px;
-  margin: 4px;
-}
-</style>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Sumana" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <style>
+   
+   body {
+   background: #1198;
+   }
+  
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+      background-color: #b9f2f2;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 5px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #b2f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+     footer {
+      background-color: #b9f2f2;
+      padding: 25px;
+      }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+    .col-sm-3 img {
+      height: 250px;
+    }
+    p {
+      font-family: 'Sumana', serif;
+       backgound-color:  #b9f2f2;
+      
+      }
+    h1 {
+      font-family: 'Indie Flower', cursive;
+      backgound-color:  #b9f2f2;
+      }
+    h3 {
+      font-family: 'Open Sans', sans-serif;
+      }
+      
+  </style>
 </head>
-
 <body>
-<div class="prompt"></div>
-<button class="Next">Next</button>
-
-<script>
-
-// List of prompts for the user
-var prompts = [
-	'Type your name',
-	'Type an adjective',
-	'Type your age',
-	'Type a name of a place',
-	'Type another name (female)',
-	'Type a name of an animal (plural)',
-	'Type a group of nouns',
-	'Type the name of your hospital',
-	'Type another name',
-	'Type your favorite ice cream flavor',
-	'Type another number'
-	
-	 ];
-
-var answers=[];
-// Keep track of current prompt we're on
-var currentPrompt = 0;
-
-// A function that will call the next prompt
-var nextPrompt = function() {
-  //if there's no answer in the form
-  if (currentPrompt != 0){
-    answers.push($('input').val());
-  }
-	// if there is a next prompt
-	if (currentPrompt < prompts.length) {
-		// put first prompt in all html elements with class 
-		$('.prompt').html(prompts[currentPrompt] +'<br><input type="text">');
-		// move the next prompt into variable currentPrompt 
-		currentPrompt = currentPrompt + 1;
-	}
-	//or else if we're at the end of the array
-	else {
-		// put a new message into the html.
-		showFinal();
-	}
-}
-
-//puts user answers into HTML
-var showFinal = function() {
-  $('.prompt').html('This is the story of <span class="fill">'+answers[0]+'</span> and the <span class="fill">'+answers[2]+'</span> <span class="fill">'+answers[1]+'</span> <span class="fill">'+answers[5]+'</span>.   <span class="fill">'+answers[4]+'</span> is the best friend. <span class="fill">'+answers[0]+'</span> lived in a house with <span class="fill">'+answers[2]+'</span> <span class="fill">'+answers[5]+'</span>. One day <span class="fill">'+answers[4]+'</span> took all the pet <span class="fill">'+answers[5]+'</span> out for a walk. They came across an ice cream truck and all the <span class="fill">'+answers[5]+'</span> jumped on top of it. <span class="fill">'+answers[4]+'</span> couldnt control them. <span class="fill">'+answers[0]+'</span> was walking home from work, and saw all the <span class="fill">'+answers[5]+'</span> jumping on the truck. <span class="fill">'+answers[0]+'</span> ran towards the <span class="fill">'+answers[5]+'</span> and was yelling at <span class="fill">'+answers[4]+'</span> for taking the <span class="fill">'+answers[5]+'</span> out. But when the <span class="fill">'+answers[5]+'</span> saw <span class="fill">'+answers[0]+'</span>. They jumped off and acted like nothing happend, now that they were listening <span class="fill">'+answers[0]+'</span> decided to take them to the <span class="fill">'+answers[3]+'</span> along with <span class="fill">'+answers[4]+'</span>. There they were jumping around and hurting <span class="fill">'+answers[6]+'</span>. One of them even hurt <span class="fill">'+answers[4]+'</span> so bad that she has to go to the hospital. So <span class="fill">'+answers[0]+'</span> took <span class="fill">'+answers[4]+'</span> and all the <span class="fill">'+answers[5]+'</span> to <span class="fill">'+answers[7]+'</span> hospital. Then doctor <span class="fill">'+answers[8]+'</span> said <span class="fill">'+answers[4]+'</span> broke her ankle. So <span class="fill">'+answers[0]+'</span> took the <span class="fill">'+answers[5]+'</span> home and punished them. But after <span class="fill">'+answers[10]+'</span> minutes, <span class="fill">'+answers[0]+'</span> felt bad, and gave them <span class="fill">'+answers[9]+'</span> flavored ice cream.<br><button onclick=alert("Liked")>Like</button>');
-  //and then hide the button
-  $('.Next').hide();
-}
-// run nextPrompt function when button is clicked
-$('button').click(function() {
-	nextPrompt();
-});
-
-// Show the first prompt as soon as js loads
-nextPrompt();
 
 
-  </script>
+  
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+      <p><a href="https://www.metmuseum.org/toah/works/" target="_blank">Time Line of Art</a></p>
+      <p><a href="https://www.metmuseum.org/about-the-met/curatorial-departments/modern-and-contemporary-art" target="_blank">Modern and Contemporary Art</a></p>
+      <p><a href="https://www.metmuseum.org/art/collection" target="_blank">Collection</a></p>
+    </div>
+    <div class="col-sm-8 text-left"> 
+<body>
+
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Portfolio</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Art" target="_blank">About</a></li>
+        <li><a href="https://www.timeout.com/newyork/art/best-art-galleries-in-new-york-city-galleries" target="_blank">Gallery</a></li>
+        <li><a href="https://www.metmuseum.org/about-the-met/contact" target="_blank"> Contact</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="jumbotron">
+  <div class="container text-center">
+  <div class="row content">
+    </div>
+    
+    <h1>My Art</h1>      
+    <p>I do art for passion</p>
+  </div>
+</div>
+<div class="container-fluid bg-3 text-center">    
+  <h3>Some of my Work</h3><br>
+  <div class="row">
+    <div class="col-sm-3">
+   
+    
+      <p>The Trees</p>
+      <img src="http://www.klbaileyart.com/blog/wp-content/uploads/2017/06/flat1000x1000075f.jpg" class="img-responsive" style="width:100%" alt="Image">
+    </div>
+    <div class="col-sm-3"> 
+      <p>Faces</p>
+      <img src="https://orig00.deviantart.net/0702/f/2013/243/0/3/p8291405___k_oacute_pia___k_oacute_pia_by_jajapisjova-d6kfgzb.jpg" class="img-responsive" style="width:100%" alt="Image">
+    </div>
+    <div class="col-sm-3"> 
+      <p>2 Wolves</p>
+      <img src="https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAAleAAAAJDE3YWVkZDg5LTA5ZjctNGU5Ni05NjhlLWE0MGVlYWZiYmQ3MQ.jpg" class="img-responsive" style="width:100%" alt="Image">
+    </div>
+    <div class="col-sm-3">
+      <p>The Sky</p>
+      <img src="http://www.osnatfineart.com/paintings/06-03/06-03-clouds-painting.jpg" class="img-responsive" style="width:100%" alt="Image">
+    </div>
+  </div>
+</div><br>
+
+<div class="container-fluid bg-3 text-center">    
+  <div class="row">
+    <div class="col-sm-3">
+      <p>Trees?</p>
+      <img src="https://i.pinimg.com/originals/d3/7e/43/d37e432af1e22d7c057345352da091b2.jpg" class="img-responsive" style="width:100%" alt="Image">
+    </div>
+    <div class="col-sm-3"> 
+      <p>The Field</p>
+      <img src="https://frozenpeafund.com/wp-content/uploads/2013/11/art-work-300x199.jpg" class="img-responsive" style="width:100%" alt="Image">
+    </div>
+    <div class="col-sm-3"> 
+      <p>Eye?</p>
+      <img src="http://t.wallpaperweb.org/wallpaper/drawing/1600x1200/Eye_for_Art.jpg" class="img-responsive" style="width:100%" alt="Image">
+    </div>
+    <div class="col-sm-3">
+      <p>Lion</p>
+      <img src="https://i.pinimg.com/originals/42/5b/90/425b90fccb18bf40a95b3e83d7f5c5af.jpg" class="img-responsive" style="width:100%" alt="Image">
+    </div>
+  </div>
+</div><br>
+
+<div class="container-fluid bg-3 text-center">    
+  <div class="row">
+    <div class="col-sm-3">
+      <p>Ocean</p>
+      <img src="https://i.kinja-img.com/gawker-media/image/upload/s--eoBJrwCW--/c_fill,fl_progressive,g_center,h_358,q_80,w_636/cvrggqmksrlrrkxrr2ov.jpg" class="img-responsive" style="width:100%" alt="Image">
+    </div>
+    <div class="col-sm-3"> 
+      <p>Sea</p>
+      <img src="https://www.wikihow.com/images/9/97/User-Completed-Image-Title-Your-Work-of-Art-2017.08.17-18.20.07.0.jpg" class="img-responsive" style="width:100%" alt="Image">
+    </div>
+    <div class="col-sm-3"> 
+      <p>Sea?</p>
+      <img src="https://images.template.net/wp-content/uploads/2017/02/07211216/Sunset-Over-Ocean-Painting.jpg" class="img-responsive" style="width:100%" alt="Image">
+    </div>
+    <div class="col-sm-3">
+      <p>Ocean?</p>
+      <img src="https://www.dhresource.com/albu_368528305_00-1.0x0/100-hand-painted-high-quality-canvas-ocean.jpg" class="img-responsive" style="width:100%" alt="Image">
+    </div>
+  </div>
+</div><br><br>
+
+<footer class="container-fluid text-center">
+  <p>My Art work</p>
+</footer>
+
 </body>
+</html>
+    </div>
+    <div class="col-sm-2 sidenav">
+      <div class="well">
+       <p><a href="https://www.streetartmuseumamsterdam.com/?gclid=EAIaIQobChMI1eWtz5rL2QIVUEwNCh3RqAjXEAAYASAAEgLlOPD_BwE" target="_blank">Street Art</a></p>   
+      </div>
+      <div class="well">
+       <p><a href="http://graffitiwarehouse.com/?gclid=EAIaIQobChMI1eWtz5rL2QIVUEwNCh3RqAjXEAAYAiAAEgLJd_D_BwE" target="_blank">Graffiti Warehouse</a></p>   
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
